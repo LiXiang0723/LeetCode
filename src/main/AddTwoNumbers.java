@@ -1,11 +1,11 @@
 package main;
 
-import common.SinglyLinkedList;
+import common.ListNode;
 
 public class AddTwoNumbers {
-    public SinglyLinkedList addTwoNumbers(SinglyLinkedList l1, SinglyLinkedList l2) {
-        SinglyLinkedList head = null;
-        SinglyLinkedList cursor = null;
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode head = null;
+        ListNode cursor = null;
         boolean advance = false;
         if (l1 == null || l2 == null) {
             return null;
@@ -17,7 +17,7 @@ public class AddTwoNumbers {
             }
             advance = sum > 9 ? true : false;
 
-            SinglyLinkedList newNode = new SinglyLinkedList(sum % 10);
+            ListNode newNode = new ListNode(sum % 10);
             if (head == null) {
                 head = newNode;
                 cursor = newNode;
@@ -32,7 +32,7 @@ public class AddTwoNumbers {
 
         if (l1 == null && l2 == null) {
             if (advance) {
-                cursor.next = new SinglyLinkedList(1);
+                cursor.next = new ListNode(1);
                 cursor = cursor.next;
                 advance = false;
             }
@@ -48,7 +48,7 @@ public class AddTwoNumbers {
             if (l1.val > 9) {
                 advance = true;
             }
-            cursor.next = new SinglyLinkedList((l1.val) % 10);
+            cursor.next = new ListNode((l1.val) % 10);
             cursor = cursor.next;
             l1 = l1.next;
         }
@@ -62,13 +62,13 @@ public class AddTwoNumbers {
             if (l2.val > 9) {
                 advance = true;
             }
-            cursor.next = new SinglyLinkedList((l2.val) % 10);
+            cursor.next = new ListNode((l2.val) % 10);
             cursor = cursor.next;
             l2 = l2.next;
         }
 
         if (advance) {
-            cursor.next = new SinglyLinkedList(1);
+            cursor.next = new ListNode(1);
             cursor = cursor.next;
             advance = false;
         }
