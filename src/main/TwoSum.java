@@ -3,6 +3,8 @@ package main;
 import java.util.HashMap;
 import java.util.Map;
 
+//Time complexity: O(n)
+//Space complexity: O(n)
 public class TwoSum {
     public int[] twoSum(int[] nums, int target) {
         int[] output = new int[2];

@@ -2,6 +2,8 @@ package main;
 
 import common.ListNode;
 
+//Time complexity: O(n)
+//Space complexity: O(n)
 public class AddTwoNumbers {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode head = null;
