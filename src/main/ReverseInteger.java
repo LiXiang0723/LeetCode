@@ -1,6 +1,9 @@
 package main;
 
 public class ReverseInteger {
+	
+	//Time complexity O(n)
+	//Space complexity O(n)
 	 public int reverse(int x) {
 	        boolean isNegative = false;
 	        
