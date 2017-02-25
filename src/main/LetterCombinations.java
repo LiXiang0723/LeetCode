@@ -50,8 +50,8 @@ public class LetterCombinations {
 	                     String newString = sb.append(currentInput.charAt(j)).toString();
 	                     tmp.add(newString);
 	                    }
-	                  result =tmp;
-	                 }
+	                  }
+			  result =tmp;
 	               }
 	            index++;
 	      }
