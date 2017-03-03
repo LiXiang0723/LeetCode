@@ -45,6 +45,20 @@ public class BinaryTree {
         }
 
     }
+    
+    public int getCount(){
+        BinaryTree left = getLeftChild(root.getKey());
+        BinaryTree right = getRightChild(root.getKey());
+        
+        return 1+(left!=null?left.getCount():0)+(right!=null?right.getCount():0);
+    }
+    
+    public BinaryTree copy(){
+        BinaryTree newTree = new BinaryTree();
+        newTree = addNodeWithChidren(newTree,this.root);
+
+        return newTree;   
+    }
 
     public BinaryTree getLeftChild(int k) {
         BinaryTree leftTree = null;
