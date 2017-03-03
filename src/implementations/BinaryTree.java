@@ -20,7 +20,7 @@ public class BinaryTree {
     }
 
     public void add(Node n) {
-        Node p = findLeaveForInsert(root, n);
+        Node p = findNodeForInsert(root, n);
         if (n.getKey() < p.getKey()) {
             p.setLeft(n);
         } else {
@@ -37,20 +37,22 @@ public class BinaryTree {
             } else {
                 p.setRight(null);
             }
+        } else {
+            System.out.println("cannot find node");
         }
 
     }
 
-    private Node findLeaveForInsert(Node parent, Node target) {
+    private Node findNodeForInsert(Node parent, Node target) {
         if (target.getKey() < parent.getKey()) {
             // go to left
             if (parent.getLeft() != null) {
-                parent = findLeaveForInsert(parent.getLeft(), target);
+                parent = findNodeForInsert(parent.getLeft(), target);
             }
         } else {
             // go to right
             if (parent.getRight() != null) {
-                parent = findLeaveForInsert(parent.getRight(), target);
+                parent = findNodeForInsert(parent.getRight(), target);
             }
         }
         return parent;
@@ -66,7 +68,8 @@ public class BinaryTree {
                     parent = findParentNode(parent.getLeft(), target);
                 }
             } else {
-                return null;
+                // Reaches leaves
+                parent = null;
             }
         } else {
             // go to right
@@ -77,7 +80,8 @@ public class BinaryTree {
                     parent = findParentNode(parent.getRight(), target);
                 }
             } else {
-                return null;
+                // Reaches leaves
+                parent = null;
             }
         }
         return parent;
