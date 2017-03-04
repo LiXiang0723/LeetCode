@@ -1,6 +1,9 @@
 package implementations;
 
 public class QuickSort {
+    // Worst time : O(n^2) when pivot is at either end and array is already
+    // sorted
+    // Average time: O(nLogn)
     public void quickSort(int[] array, int lo, int hi) {
 	if (lo < hi) {
 	    int pi = partition(array, lo, hi);
