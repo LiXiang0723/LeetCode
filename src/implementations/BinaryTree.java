@@ -11,6 +11,10 @@ import common.Node;
  * 
  * @author johnxiang
  */
+/**
+ * @author LiXiang
+ * 
+ */
 public class BinaryTree {
 
     private Node root;
@@ -64,7 +68,7 @@ public class BinaryTree {
     public BinaryTree getLeftChild(int k) {
 	BinaryTree leftTree = null;
 	Node p = findNodeForKey(root, k);
-	if (p == null) {
+	if (p.getKey() != k) {
 	    System.out.println("Cannot find key with value " + k);
 	    return leftTree;
 	}
@@ -80,7 +84,7 @@ public class BinaryTree {
     public BinaryTree getRightChild(int k) {
 	BinaryTree rightTree = null;
 	Node p = findNodeForKey(root, k);
-	if (p == null) {
+	if (p.getKey() != k) {
 	    System.out.println("Cannot find key with value " + k);
 	    return rightTree;
 	}
@@ -105,6 +109,14 @@ public class BinaryTree {
 
     }
 
+    /**
+     * Find the parent of the node whose key value is specified
+     * 
+     * @param parent
+     * @param target
+     * @return Parent node if the node with key value specified exists in the
+     *         tree, otherwise null
+     */
     private Node findParentNode(Node parent, int target) {
 	if (target < parent.getKey()) {
 	    // go to left
@@ -134,6 +146,14 @@ public class BinaryTree {
 	return parent;
     }
 
+    /**
+     * Find the node in this tree whose key value is K
+     * 
+     * @param parent
+     * @param k
+     * @return Node whose key value is K. If not found, return the leaf node
+     *         which could be its parent when inserting
+     */
     private Node findNodeForKey(Node parent, int k) {
 	if (parent.getKey() == k) {
 	    return parent;
