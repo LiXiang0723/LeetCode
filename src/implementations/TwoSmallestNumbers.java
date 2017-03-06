@@ -10,7 +10,8 @@ package implementations;
  * @author l7xiang
  */
 public class TwoSmallestNumbers {
-    
+    //Time:O(N)
+    //Space: constant
     public int[] twoSmallestNumbers(int[] nums){
         int[] result = new int[2];
         int first = Integer.MAX_VALUE;
