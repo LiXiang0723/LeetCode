@@ -13,24 +13,20 @@ import java.util.List;
  * @author l7xiang
  */
 public class Permutations {
+    //Time:O(N!)
         public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> result = new ArrayList<List<Integer>>();
-        List<Integer> digits = new ArrayList<Integer>();
-        for(int i = 0;i<nums.length;i++){
-            digits.add(nums[i]);
-        }
-        
-        helper(result,new ArrayList<Integer>(),digits,0);
+       List<List<Integer>> result = new ArrayList<List<Integer>>();
+        helper(result,new ArrayList<Integer>(),nums,0);
         return result;
         
     }
     
-    private void helper(List<List<Integer>> result,List<Integer> currList, List<Integer> digits, int index){
-        if(index < digits.size()){
-            for(int i =0;i<digits.size();i++){
-                if(currList.indexOf(digits.get(i))==-1){
-                    currList.add(digits.get(i));
-                    helper(result,currList,digits,index+1);
+    private void helper(List<List<Integer>> result,List<Integer> currList, int[] nums, int index){
+        if(index < nums.length){
+            for(int i =0;i<nums.length;i++){
+                if(currList.indexOf(nums[i])==-1){
+                    currList.add(nums[i]);
+                    helper(result,currList,nums,index+1);
                     currList.remove(currList.size()-1);
                 }
             }
