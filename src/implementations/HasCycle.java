@@ -3,6 +3,7 @@ package implementations;
 import common.ListNode;
 
 public class HasCycle {
+    // Time:O(N)
     public boolean hasCycle(ListNode head) {
 	if (head == null) {
 	    return false;
